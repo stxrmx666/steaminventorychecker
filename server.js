@@ -42,7 +42,7 @@ function getSteamId64FromTradeLink(tradeLink) {
 
 
 // Получение инвентаря
-app.post('/get-inventory', async (req, res) => {
+app.post('/api/get-inventory', async (req, res) => {
     const { tradeLink } = req.body;
   
     // Проверка наличия трейд-ссылки
@@ -51,6 +51,7 @@ app.post('/get-inventory', async (req, res) => {
       return res.status(400).json({ error: 'Трейд-ссылка не предоставлена' });
     }
   
+    
     // Извлечение SteamID64 из трейд-ссылки
     const steamId64 = getSteamId64FromTradeLink(tradeLink);
     if (!steamId64) {
@@ -88,7 +89,7 @@ app.post('/get-inventory', async (req, res) => {
     }
   });
 
-  app.get('/get-price', async (req, res) => {
+  app.get('/api/get-price', async (req, res) => {
     const { market_hash_name } = req.query;
   
     // Проверка наличия названия предмета
