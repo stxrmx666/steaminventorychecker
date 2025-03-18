@@ -3,16 +3,18 @@ const axios = require('axios');
 const PORT = 3000;
 const cors = require('cors');
 const fetch = require('node-fetch');
+require('dotenv').config()
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
 app.use(express.static('public')); // Папка для статических файлов (HTML, CSS, JS)
 app.use(express.json());
 
 // Ключ Steam API
-const STEAM_API_KEY = 'A7383CBBB75F36263001E3EF82472354';
+const STEAM_API_KEY = process.env.STEAM_API_KEY;
+
 
 
 
